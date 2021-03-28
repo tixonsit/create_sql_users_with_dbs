@@ -11,6 +11,6 @@ file = open('./db_and_users.sql', 'w')
 for i in range(1, args.users + 1):
     file.write(f"CREATE USER 'user_{i}'@'%' IDENTIFIED BY 'user{i}password';\n")
     file.write(sql_script_data.replace('classicmodels', f'db_user_{i}'))
-    file.write(f"GRANT ALL PRIVILEGES ON db_user_{i}.* TO \'user_{i}\'@\'%\'\n")
+    file.write(f"GRANT ALL PRIVILEGES ON db_user_{i}.* TO \'user_{i}\'@\'%\';\n")
     file.write('FLUSH PRIVILEGES;\n')
 file.close()
